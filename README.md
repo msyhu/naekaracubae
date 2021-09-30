@@ -1,2 +1,2 @@
 # naekaracubae
-naekaracubae.msyhucom
+naekaracubae.msyhu.com
