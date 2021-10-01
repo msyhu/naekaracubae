@@ -2,6 +2,7 @@ package com.msyhu.naekaracubae.user.resources;
 
 import com.msyhu.naekaracubae.user.models.User;
 import com.msyhu.naekaracubae.user.repositories.UserRepository;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.stream.StreamSupport;
 
 @Slf4j
 @RestController
+@ApiOperation("상태별 User 조회")
 @RequestMapping("/users")
 public class UserController {
 

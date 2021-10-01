@@ -1,0 +1,8 @@
+### findall
+http://localhost:8089/users
+
+### saveUser
+POST http://localhost:8089/users
+Content-Type: application/json
+
+{"name": "Mario", "email": "mario@msyhu.com"}
