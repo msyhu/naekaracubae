@@ -6,3 +6,10 @@ POST http://localhost:8089/users
 Content-Type: application/json
 
 {"name": "Mario", "email": "mario@msyhu.com"}
+
+### updateUser
+PUT http://localhost:8089/users/3
+Content-Type: application/json
+
+{"name": "Mario", "email": "mario@msyhu.com"}
+

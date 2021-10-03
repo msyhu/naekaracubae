@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
 
 @Slf4j
 @RestController
-@ApiOperation("상태별 User 조회")
+@ApiOperation("상태별 Subscribers 조회")
 @RequestMapping("/users")
 public class UserController {
 
@@ -43,10 +43,10 @@ public class UserController {
     }
 
     @PostMapping
-    public User saveUser(@RequestBody User user) {
-        log.info("Save User " + user);
+    public User saveUser(@RequestBody User User) {
+        log.info("Save Subscribers " + User);
 
-        User savedUser = userRepository.save(user);
+        User savedUser = userRepository.save(User);
         return savedUser;
     }
 
@@ -58,18 +58,18 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable("id") Long id, @RequestBody User user) {
-        log.info("Update User id " + id + " user " + user);
+    public User updateUser(@PathVariable("id") Long id, @RequestBody User User) {
+        log.info("Update Subscribers id " + id + " Subscribers " + User);
 
         Optional<User> userInfo = userRepository.findById(id);
         User findUser = userInfo.orElseThrow(() -> new NoSuchElementException("There is not any resource by id: " + id));
 
         if (findUser.getEmail() != null) {
-            findUser.setEmail(user.getEmail());
+            findUser.setEmail(User.getEmail());
         }
 
         if (findUser.getName() != null) {
-            findUser.setName(user.getName());
+            findUser.setName(User.getName());
         }
 
         return userRepository.save(findUser);
