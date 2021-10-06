@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Input() {
     const axios = require('axios');
@@ -7,6 +7,16 @@ function Input() {
         email: '',
         nickname: ''
     });
+
+    useEffect(() => {
+        async function get() {
+            const response = await axios.get(
+                `http://localhost:8089/users/count`
+            );
+            setCount(response.data);
+        }
+        get();
+    }, []);
 
     const { email, nickname } = inputs; // 비구조화 할당을 통해 값 추출
 
@@ -40,6 +50,9 @@ function Input() {
                 email: '',
                 nickname: ''
             });
+
+            window.location.reload();
+
             return;
         }
         else {
