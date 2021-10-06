@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function Input() {
+    const [count, setCount] = useState(0);
     const [inputs, setInputs] = useState({
         email: '',
         nickname: ''
@@ -16,6 +17,17 @@ function Input() {
         });
     };
 
+    const submitSubscribe = async() => {
+        if (inputs.email === '') {
+           alert('email 을 입력해 주세요')
+        }
+        else if (inputs.nickname === '') {
+            alert('nickname 을 입력해 주세요')
+        }
+
+
+    }
+
     console.log(inputs)
 
     return (
@@ -25,7 +37,8 @@ function Input() {
             닉네임: <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
             <br />
 
-            <button>채용정보 무료로 구독하기</button>
+            <button onClick={submitSubscribe}>채용정보 무료로 구독하기</button>
+            <div>총 {count} 분이 채용정보를 구독하고 계십니다.</div>
         </div>
     );
 
