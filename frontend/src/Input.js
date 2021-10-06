@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function Input() {
+    const axios = require('axios');
     const [count, setCount] = useState(0);
     const [inputs, setInputs] = useState({
         email: '',
@@ -24,6 +25,11 @@ function Input() {
         else if (inputs.nickname === '') {
             alert('nickname 을 입력해 주세요')
         }
+
+        axios.post('http://localhost:8089/users',
+            inputs
+        )
+            .then( response => { console.log(response) } );
 
 
     }
