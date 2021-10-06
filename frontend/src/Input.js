@@ -27,7 +27,7 @@ function Input() {
         }
 
         axios.post('http://localhost:8089/users',
-            inputs
+            {email: inputs.email, name: inputs.nickname}
         )
             .then( response => { console.log(response) } );
 
