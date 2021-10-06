@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {Button, Input, Layout } from 'antd';
+import {Button, Input, Layout, Divider} from 'antd';
 import './App.css';
+import naekaracubae_main from './naekaracubae_main.jpg';
 
 function Main() {
-    const { Header, Content, Footer } = Layout;
+    const {Header, Content, Footer} = Layout;
 
     const axios = require('axios');
     const [count, setCount] = useState(0);
@@ -66,20 +67,28 @@ function Main() {
     }
 
     return (
-        <Layout className="content">
-            <Content>
-                <div>✨지금 <font className="bold">{count}</font>명이 채용정보를 받고 있어요.</div>
-                <br/>
-                <div>네카라쿠배 개발자 채용 소식, 알고는 싶지만 하나씩 확인할 새 없이 바쁜 게 우리 탓은 아니잖아요! 월/화/수/목/금 퇴근시간마다 네카라쿠배 개발자 채용 소식을 메일로 받아보세요.</div>
-                <br/>
-                <Input size="large" name="email" placeholder="이메일 주소" onChange={onChange} value={email}/>
-                <br/><br/>
-                <Input size="large" name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
-                <br/><br/>
+        <div>
+            <img src={naekaracubae_main} className="main-image"/>
+            <Divider />
+            <div className="slogan">우리가 시간이 없지,이직이 안 궁금하냐!</div>
+            <Divider />
+            <Layout className="content">
+                <Content>
+                    <div>✨지금 <font className="bold">{count}</font>명이 채용정보를 받고 있어요.</div>
+                    <br/>
+                    <div>네카라쿠배 개발자 채용 소식, 알고는 싶지만 하나씩 확인할 새 없이 바쁜 게 우리 탓은 아니잖아요! 월/화/수/목/금 퇴근시간마다 네카라쿠배 개발자 채용 소식을 메일로
+                        받아보세요.
+                    </div>
+                    <br/>
+                    <Input size="large" name="email" placeholder="이메일 주소" onChange={onChange} value={email}/>
+                    <br/><br/>
+                    <Input size="large" name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
+                    <br/><br/>
 
-                <Button onClick={submitSubscribe} className="middle button">채용정보 무료로 구독하기</Button>
-            </Content>
-        </Layout>
+                    <Button onClick={submitSubscribe} className="middle button">채용정보 무료로 구독하기</Button>
+                </Content>
+            </Layout>
+        </div>
     );
 
 }
