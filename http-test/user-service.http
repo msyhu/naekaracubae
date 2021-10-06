@@ -2,6 +2,8 @@
 http://localhost:8089/users
 ### findall-container
 http://localhost:8079/users
+### findall-vm
+http://naekaracubae.msyhu.com:8089/users
 
 ### saveUser
 POST http://localhost:8089/users
