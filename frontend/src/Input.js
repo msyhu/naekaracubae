@@ -20,17 +20,32 @@ function Input() {
 
     const submitSubscribe = async() => {
         if (inputs.email === '') {
-           alert('email 을 입력해 주세요')
+           alert('email 을 입력해 주세요');
+           return;
         }
         else if (inputs.nickname === '') {
-            alert('nickname 을 입력해 주세요')
+            alert('nickname 을 입력해 주세요');
+            return;
         }
 
-        axios.post('http://localhost:8089/users',
+        const response = await axios.post('http://localhost:8089/users',
             {email: inputs.email, name: inputs.nickname}
-        )
-            .then( response => { console.log(response) } );
+        );
 
+        console.log(response);
+
+        if (response.status === 200) {
+            alert("등록 성공!");
+            setInputs({
+                email: '',
+                nickname: ''
+            });
+            return;
+        }
+        else {
+            alert("등록 실패");
+            return;
+        }
 
     }
 
