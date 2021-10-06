@@ -32,6 +32,12 @@ public class UserController {
         return StreamSupport.stream(all.spliterator(), false).collect(Collectors.toList());
     }
 
+    @GetMapping("/count")
+    public long count() {
+        log.info("count");
+        return userRepository.count();
+    }
+
     @GetMapping("/{id}")
     public User findById(@PathVariable("id") Long id) {
         log.info("Find by Id " + id);

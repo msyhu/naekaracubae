@@ -5,6 +5,9 @@ http://localhost:8079/users
 ### findall-vm
 http://naekaracubae.msyhu.com:8089/users
 
+### count
+http://localhost:8089/users/count
+
 ### saveUser
 POST http://localhost:8089/users
 Content-Type: application/json
