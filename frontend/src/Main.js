@@ -70,7 +70,7 @@ function Main() {
         <div>
             <Header>
                 <div className="header">
-                    네카.라쿠배
+                    네,카라쿠배
                 </div>
             </Header>
             <img src={naekaracubae_main} className="main-image"/>
