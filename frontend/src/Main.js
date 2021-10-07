@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Input, Layout, Divider} from 'antd';
 import './App.css';
-import naekaracubae_main from './naekaracubae_main.jpg';
+import naekaracubae_main from './static/images/naekaracubae_main.jpg';
 
 function Main() {
     const {Header, Content, Footer} = Layout;
@@ -68,6 +68,11 @@ function Main() {
 
     return (
         <div>
+            <Header>
+                <div className="header">
+                    네카.라쿠배
+                </div>
+            </Header>
             <img src={naekaracubae_main} className="main-image"/>
             <Divider />
             <div className="slogan">우리가 시간이 없지,이직이 안 궁금하냐!</div>
@@ -86,8 +91,10 @@ function Main() {
                     <br/><br/>
 
                     <Button onClick={submitSubscribe} className="middle button">채용정보 무료로 구독하기</Button>
+
                 </Content>
             </Layout>
+            <br/><br/>
         </div>
     );
 
