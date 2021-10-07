@@ -4,7 +4,7 @@ import './App.css';
 import naekaracubae_main from './static/images/naekaracubae_main.jpg';
 
 function Main() {
-    const {Header, Content, Footer} = Layout;
+    const {Header, Content} = Layout;
 
     const axios = require('axios');
     const [count, setCount] = useState(0);
@@ -43,13 +43,22 @@ function Main() {
             return;
         }
 
-        const response = await axios.post('http://localhost:8089/users',
+        const existsCheckResponse = await axios.get('http://localhost:8089/users/exists/' + inputs.email
+        );
+        console.log(existsCheckResponse);
+
+        if (existsCheckResponse.status !== 200 ||
+            existsCheckResponse.data === true) {
+            alert("이미 이 메일은 구독되어 있습니다.");
+            return;
+        }
+
+        const addResponse = await axios.post('http://localhost:8089/users',
             {email: inputs.email, name: inputs.nickname}
         );
 
-        console.log(response);
 
-        if (response.status === 200) {
+        if (addResponse.status === 200) {
             alert("등록 성공!");
             setInputs({
                 email: '',

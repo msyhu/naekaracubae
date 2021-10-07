@@ -51,7 +51,7 @@ public class UserApiControllerTest {
         String url = "http://localhost:" + port + "/users/exists/mario@msyhu.com";
 
         // when
-        ResponseEntity<Boolean> responseEntity = restTemplate.getForEntity(url,Boolean.class);
+        ResponseEntity<Boolean> responseEntity = restTemplate.getForEntity(url, Boolean.class);
 
         // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
