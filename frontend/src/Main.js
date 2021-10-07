@@ -13,8 +13,8 @@ function Main() {
         nickname: ''
     });
 
-    const baseUrl = 'http://localhost:8089/users';
-    // const baseUrl = 'http://naekaracubae.msyhu.com:8089/users';
+    // const baseUrl = 'http://localhost:8089/users';
+    const baseUrl = 'http://naekaracubae.msyhu.com:8089/users';
 
     useEffect(() => {
         async function get() {

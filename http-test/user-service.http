@@ -7,6 +7,8 @@ http://naekaracubae.msyhu.com:8089/users
 
 ### count
 http://localhost:8089/users/count
+### count vm
+http://naekaracubae.msyhu.com:8089/users/count
 
 ### saveUser
 POST http://localhost:8089/users
