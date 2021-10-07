@@ -1,14 +1,18 @@
 package com.msyhu.naekaracubae.user.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="subscribers")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="subscribers")
 public class User {
 
     @Id
