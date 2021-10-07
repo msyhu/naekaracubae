@@ -2,8 +2,10 @@ package com.msyhu.naekaracubae.user.resources;
 
 import com.msyhu.naekaracubae.user.models.User;
 import com.msyhu.naekaracubae.user.repositories.UserRepository;
+import com.msyhu.naekaracubae.user.services.UserService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,9 +21,11 @@ import java.util.stream.StreamSupport;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -79,5 +83,10 @@ public class UserController {
         }
 
         return userRepository.save(findUser);
+    }
+
+    @GetMapping("/exists/{email}")
+    public ResponseEntity<Boolean> checkEmailDuplicate(@PathVariable String email) {
+        return ResponseEntity.ok(userService.checkEmailDuplicate(email));
     }
 }
