@@ -13,10 +13,13 @@ function Main() {
         nickname: ''
     });
 
+    const baseUrl = 'http://localhost:8089/users';
+    // const baseUrl = 'http://naekaracubae.msyhu.com:8089/users';
+
     useEffect(() => {
         async function get() {
             const response = await axios.get(
-                `http://localhost:8089/users/count`
+                baseUrl + '/count'
             );
             setCount(response.data);
         }
@@ -43,7 +46,7 @@ function Main() {
             return;
         }
 
-        const existsCheckResponse = await axios.get('http://localhost:8089/users/exists/' + inputs.email
+        const existsCheckResponse = await axios.get(baseUrl + '/exists/' + inputs.email
         );
         console.log(existsCheckResponse);
 
@@ -53,7 +56,7 @@ function Main() {
             return;
         }
 
-        const addResponse = await axios.post('http://localhost:8089/users',
+        const addResponse = await axios.post(baseUrl,
             {email: inputs.email, name: inputs.nickname}
         );
 
